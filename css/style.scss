@@ -1,0 +1,363 @@
+---
+--- 
+$font-stack: 'Open Sans', sans-serif;
+$section-border: #b8b8b8;
+$section-padding:60px;
+ul, ol {
+	padding: 0px;
+	list-style:none;
+	
+}
+$main-color:#f8951e;
+$secondary-color:#0a4264;
+$white-color:#fff;
+
+ @mixin transition-duration($duration) {
+ -webkit-transition-duration: $duration;
+ -moz-transition-duration: $duration;
+ -ms-transition-duration: $duration;
+ transition-duration: $duration;
+}
+ @mixin vendor-prefix($name, $argument) {
+  -webkit-#{$name}: #{$argument};
+  -ms-#{$name}: #{$argument};
+  -moz-#{$name}: #{$argument};
+  -o-#{$name}: #{$argument};
+  #{$name}: #{$argument};
+}
+h1 {
+	font-size: 43px;
+}
+h2 {
+	font-size: 30px;	
+	font-weight: bold;
+	color: #323232;
+	line-height: 1.2em;
+	margin-bottom:40px;
+	 p {
+	color:$main-color;
+	font-size:20px;;
+	font-style:italic;
+	font-weight:normal
+	}
+	&.sub-heading-h2{font-weight:400; margin-bottom:25px; color:#000;}
+}
+.main-color {
+color:$main-color
+}
+.secondary-color {
+color:$secondary-color;
+}
+.btn-more {
+	border:2px solid $secondary-color;
+	color:$main-color;
+	padding:3px 16px;
+	margin-top:10px;
+	display:inline-block;
+	@include vendor-prefix(transition, all 1s ease-out);
+}
+.btn-more:hover {
+background:$secondary-color;
+color:$white-color;
+text-decoration:none;
+}
+
+body {
+font-family: $font-stack;
+}
+a:focus {
+	outline: none;
+}
+header {
+border-bottom:1px solid $section-border;
+}
+section {
+@extend header;
+padding-bottom:$section-padding;
+padding-top:$section-padding;
+}
+.top-bar {
+	padding: 5px 0px;
+}
+/*           Wrapper
+==============================*/
+#wrapper {
+	position: absolute;
+	top: 0px;
+	width: 100%;
+	height: 100%;
+}
+/*classes used to push the wrapper down when the navbar is expanded*/
+.open_wrapper {
+	top: 50px !important;
+}
+.closed_wrapper {
+	top: 0px !important;
+}
+/*      Navigation Bar
+==============================*/
+#m_nav_container {
+	width: 100%;
+	/* height: 200px;*/
+	background-color: #0a4264;
+	position: fixed;
+	display: none;
+	/*	opacity: 0;*/
+	top: 0px;
+}
+#m_nav_bar {
+	width: 80%;
+	margin: auto;
+}
+#m_nav_list {
+	list-style: none;
+	 .m_nav_item {
+	 margin-top: 10px;
+	 display:inline-block;
+		 a {
+		 text-decoration: none;
+		 color: #f8951e;
+		 font-size: 1.2em;
+		 font-family: 'Bree Serif', serif !important;
+		 -webkit-transition-duration: 0.5s;
+		 padding:0px 5px;
+		}
+		 a:hover {
+		 color: #fff;
+		}
+	}
+}
+/*classes for jQuery function*/
+.container_open {
+	position: fixed !important;
+	display: block;/*height: 120px;*/
+}
+/*  Navigation Hamburger Icon
+==============================*/
+
+/*icon container*/
+#m_nav_menu {
+	width: 45px;
+	position: fixed;
+	background: rgba(0, 0, 0, 0.2);
+	top: 5px;
+	right: 7%;
+	z-index: 3;
+}
+/*class applied to create the lines*/
+.m_nav_ham {
+	width: 35px;
+	height: 5px;
+	background: #0a4264;
+	margin: 5px auto;
+ 	@include transition-duration(0.3s);
+}
+.m_nav_ham_1_open {
+	-webkit-transform: rotate(45deg);
+	-moz-transform: rotate(45deg);
+	-ms-transform: rotate(45deg);
+	transform: rotate(45deg);
+	margin-top: 15px;
+}
+.m_nav_ham_2_open {
+	-webkit-transform: rotate(-45deg);
+	-moz-transform: rotate(-45deg);
+	-ms-transform: rotate(-45deg);
+	transform: rotate(-45deg);
+	margin-top: -10px;
+}
+.m_nav_ham_3_open {
+	opacity: 0;
+}
+/*classes used to change the button's format based on jquery toggle
+In future releases this will be used to animate the m_nav_ham divs to form 
+an X*/
+.button_open {
+	background: #f8951e;/*	-webkit-transform: rotate(45deg);*/
+}
+.button_closed {
+}
+/*           Banner
+==============================*/
+.banner {
+	background: #f1f3f5;
+	 p {
+		font-size:16px;
+		font-style:italic;
+		text-align:center;
+	}
+	h1 {
+		color: #201f1f;
+		font-weight: 300
+	}
+}
+/*           Full Stack
+==============================*/
+.stack-box {
+	 .icon {
+		 width:132px;
+		 height:132px;
+		 background:#f3f5f6;
+		 color:$main-color;
+		 font-size:76px;
+		 text-align:center;
+		 line-height:1.7em;
+		 vertical-align:middle;
+		 margin:0px auto;
+		 border-bottom:4px solid $secondary-color;
+	}
+	h4{
+		color:$secondary-color;
+		font-weight:600;	
+	}
+	p{
+		color:#343434;
+	}
+}
+.quote{
+	text-align:justify;
+	text-indent: 3.5em;
+	position:relative;
+	margin-bottom:20px;
+	}
+.quote::before {
+  color: #0a4264;
+  content: "";
+  font-family: fontawesome;
+  font-size: 40px;
+  left: -50px;
+  position: absolute;
+  top: -26px;
+  font-style:italic
+}
+
+.developers{
+	.carousel-indicators {
+		bottom:-30px;
+			li{
+			border:1px solid $secondary-color;
+			&.active{border-color:$main-color;}
+			}
+			
+	}
+	.nav-tabs{
+			text-align:center; border-bottom:0px; margin-bottom:40px;			
+			li{display:inline-block; float:none;			
+				a{
+					border:3px solid $main-color;
+					border-radius:0px;
+					font-size:20px;
+					color: $secondary-color;
+					padding:4px 10px;
+				}
+				&.active a{background:$secondary-color; color:$white-color; border:3px solid $secondary-color}	
+			}
+	}
+}
+
+.why-col{width:45%}
+.why-col:last-child {
+  border-left: 1px solid #b8b8b8;
+  margin-left: 5%;
+  padding-left: 5%;
+  width: 50%;
+}
+/*           blog
+==============================*/
+.latest-blog {
+	border-bottom: 1px solid #cccccc;
+	padding-bottom: 10px;
+	margin-bottom: 10px;
+	p {
+		line-height: 1.5em;
+		margin: 0 0 3px;
+		padding: 0;
+	}	
+	a {
+		font-size: 16px;
+		color:#337ab7;
+	}
+	a:hover{color:$main-color;}
+	.post-desc {
+		color: #999;
+	}	
+	.date {
+		color: #666;
+		font-size: 12px;
+		margin-bottom: 15px;
+		
+		 i {
+			font-size: 14px;
+		}
+	}
+}
+
+
+/*           Footer
+==============================*/
+footer{background:#172737; padding-top:30px;color:#a5bfcf;
+ a{color:#a5bfcf;@include vendor-prefix(transition, all 1s ease-out);}
+}
+ul.social-icon li {
+	float: left;	
+	list-style: none;
+	 a {
+		font-size: 16px;
+		color: #afb0b4;
+		display: block;
+		height: 30px;
+		width: 30px;
+		text-align: center;
+		@include vendor-prefix(transition, all 1s ease-out);
+		line-height: 1.4em;
+		background:#081f2d;
+		border-radius: 50%;
+		line-height: 1.8em;
+		margin-top:10px;
+		margin-right:2px;
+	}
+	a:hover {
+	background:$main-color;
+	color: #fff;
+	}
+}
+.copyright{border-top:1px solid #031622; padding:15px 0px; color:#4a748e}
+
+/*           Breakpoints
+==============================*/
+$breakpoints: (
+  'tiny':   ( max-width:  767px ),
+  'small':  ( min-width:  768px ),
+  'medium': ( min-width:  992px ),
+  'large':  ( min-width: 1200px ),
+  'custom': ( min-height:  40em )
+);
+ 
+@mixin breakpoint($name) {
+      @if map-has-key($breakpoints, $name) {
+        @media #{inspect(map-get($breakpoints, $name))} {
+      @content;
+    }
+  }
+  @else {
+    @warn "Couldn't find a breakpoint named `#{$name}`.";
+  }
+}
+
+@include breakpoint(tiny) {
+    .stack-box{padding-bottom:20px;}
+	#m_nav_list .m_nav_item{display:block;}
+	.why-col, .why-col:last-child{width:100%; border:0px;}
+	.why-col:last-child{padding-left:15px;margin-left:0px;}
+  }
+@include breakpoint(small) {
+    .stack-box{padding-bottom:20px;}
+  }
+  
+
+
+
+ 
+
+
+

@@ -1,0 +1,10 @@
+### GENERAL SETTINGS ###
+
+# Site settings
+title: DevOps
+keywords: "Boxupp by Paxcel Technologies"
+description: Boxupp by Paxcel Technologies, India allows you to create and manage Development Environments with easy Provisioning and leverage immense power of DevOps tools.
+
+scss:
+  style: compressed
+
